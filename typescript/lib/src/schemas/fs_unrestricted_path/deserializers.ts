@@ -1,28 +1,28 @@
 import type * as p_ from 'pareto-core/implementation/refiner'
 
-
-import type * as s_in from "../list_of_characters/schema.js"
 import type * as s_out from "./schema.js"
 import type * as s_function from "../non_normalized_path_parsing/schema.js"
 
-export namespace s_function2 {
+namespace s_function2 {
     export type Parameters = { 'pedantic': boolean }
 }
 
+namespace declarations {
 
-export type Node_Path = p_.Refiner_With_Parameter<
-    s_out.Node_Path,
-    s_function.Error,
-    string,
-    s_function2.Parameters
->
+    export type Node_Path = p_.Refiner_With_Parameter<
+        s_out.Node_Path,
+        s_function.Error,
+        string,
+        s_function2.Parameters
+    >
+}
 
 
 //dependencies
 import * as r_from_non_normalized_path from "./refiners/non_normalized_path.js"
 import * as deser_non_normalized from "../path_non_normalized/deserializers.js"
 
-export const Node_Path: Node_Path = ($, abort, $p) => {
+export const Node_Path: declarations.Node_Path = ($, abort, $p) => {
     return r_from_non_normalized_path.Node_Path(
         deser_non_normalized.Non_Normalized_Path($),
         abort,
