@@ -1,8 +1,8 @@
-import type * as p_ti from 'pareto-core/interface/transformer'
-import p_list_from_text from 'pareto-core/implementation/refiner/specials/list_from_text'
-import p_iterate from 'pareto-core/implementation/refiner/specials/iterate'
-import p_text_from_list from 'pareto-core/implementation/transformer/specials/text_from_list'
-import p_unreachable_code_path from 'pareto-core/implementation/transformer/specials/unreachable_code_path'
+import type * as p_ti from 'pareto-core/transformer'
+import p_list_from_text from 'pareto-core/refiner/specials/list_from_text'
+import p_iterate from 'pareto-core/refiner/specials/iterate'
+import p_text_from_list from 'pareto-core/transformer/specials/text_from_list'
+import p_unreachable_code_path from 'pareto-core/transformer/specials/unreachable_code_path'
 
 //schemas
 import type * as s_out from "./schema.js"

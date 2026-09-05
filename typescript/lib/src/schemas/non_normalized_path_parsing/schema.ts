@@ -1,4 +1,4 @@
-import type * as p_ from 'pareto-core/interface/refiner'
+import type * as p_ from 'pareto-core/refiner'
 
 export type Error =
     | ['trailing slash not allowed', null]

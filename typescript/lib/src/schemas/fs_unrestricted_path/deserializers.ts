@@ -1,4 +1,4 @@
-import type * as p_ from 'pareto-core/implementation/refiner'
+import type * as p_ from 'pareto-core/refiner'
 
 import type * as s_out from "./schema.js"
 import type * as s_function from "../non_normalized_path_parsing/schema.js"

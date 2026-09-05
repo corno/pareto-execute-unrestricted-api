@@ -1,4 +1,4 @@
-import * as p_ from 'pareto-core/interface/command_interface'
+import * as p_ from 'pareto-core/command_interface'
 
 import type * as s_execute_unrestricted_command_command from "../schemas/execute_unrestricted_command_executable/schema.js"
 import type * as s_execute_unrestricted_smelly_command_executable from "../schemas/execute_unrestricted_smelly_command_executable/schema.js"
