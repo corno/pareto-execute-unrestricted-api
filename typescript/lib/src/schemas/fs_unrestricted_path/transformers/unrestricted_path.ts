@@ -5,11 +5,24 @@ import * as p_ from 'pareto-core/transformer'
 import type * as s_in from "../schema.js"
 import type * as s_out from "../schema.js"
 
-export const extend_context_path_with_single_step = (
-    $: s_in.Context_Path,
-    $p: {
+namespace s_parameters {
+    export type create_node_path = {
+        'node': string
+    }
+
+    export type extend_context_path_with_single_step = {
         'addition': string
     }
+
+    export type extend_context_path_with_list = {
+        'addition': p_di.List<string>
+    }
+
+}
+
+export const extend_context_path_with_single_step = (
+    $: s_in.Context_Path,
+    $p: s_parameters.extend_context_path_with_single_step
 ): s_out.Context_Path => ({
     'start': $.start,
     'subpath': p_.literal.chain(
@@ -20,9 +33,7 @@ export const extend_context_path_with_single_step = (
 
 export const extend_context_path_with_list = (
     $: s_in.Context_Path,
-    $p: {
-        'addition': p_di.List<string>
-    }
+    $p: s_parameters.extend_context_path_with_list
 ): s_out.Context_Path => ({
     'start': $.start,
     'subpath': p_.literal.segmented_list([
@@ -34,9 +45,7 @@ export const extend_context_path_with_list = (
 
 export const deprecated_extend_node_path = (
     $: s_in.Node_Path,
-    $p: {
-        'addition': string
-    }
+    $p: s_parameters.extend_context_path_with_single_step
 ): s_out.Node_Path => ({
     'context': deprecated_node_path_to_context_path($),
     'node': $p.addition,
@@ -44,9 +53,7 @@ export const deprecated_extend_node_path = (
 
 export const create_node_path = (
     $: s_in.Context_Path,
-    $p: {
-        node: string
-    }
+    $p: s_parameters.create_node_path
 ): s_out.Node_Path => ({
     'context': $,
     'node': $p.node,

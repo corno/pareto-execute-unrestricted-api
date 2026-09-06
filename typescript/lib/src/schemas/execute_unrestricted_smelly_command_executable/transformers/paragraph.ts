@@ -14,6 +14,9 @@ namespace declarations {
 //shorthands
 import * as sh from "pareto-fountain-pen/modules/paragraph/schemas/paragraph/shorthands/deprecated"
 
+//dependencies
+import * as ser_primitives from "../../primitives/serializers.js"
+
 export const Error: declarations.Error = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
@@ -29,7 +32,7 @@ export const Error: declarations.Error = ($) => p_.from.state($).decide(
                         sh.sentence([
                             sh.ph.text("exit code: "),
                             p_.from.optional($['exit code']).decide(
-                                ($) => sh.ph.text(`${$}`), //FIXME
+                                ($) => sh.ph.text(ser_primitives.Number($)),
                                 () => sh.ph.text("n/a")
                             )
                         ]),
