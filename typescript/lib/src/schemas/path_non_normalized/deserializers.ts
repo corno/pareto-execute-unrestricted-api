@@ -1,4 +1,4 @@
-import type * as p_ti from 'pareto-core/transformer'
+import * as p_ from 'pareto-core/deserializer'
 import p_list_from_text from 'pareto-core/refiner/specials/list_from_text'
 import p_iterate from 'pareto-core/refiner/specials/iterate'
 import p_text_from_list from 'pareto-core/transformer/specials/text_from_list'
@@ -8,8 +8,7 @@ import p_unreachable_code_path from 'pareto-core/transformer/specials/unreachabl
 import type * as s_out from "./schema.js"
 
 
-export const Non_Normalized_Path: p_ti.Transformer<
-    string,
+export const Non_Normalized_Path: p_.Deserializer_Without_Error<
     s_out.Non_Normalized_Path
 > = ($) => p_iterate({
     list: p_list_from_text(

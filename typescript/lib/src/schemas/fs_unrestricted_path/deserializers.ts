@@ -1,4 +1,4 @@
-import type * as p_ from 'pareto-core/refiner'
+import type * as p_ from 'pareto-core/deserializer'
 
 import type * as s_out from "./schema.js"
 import type * as s_function from "../non_normalized_path_parsing/schema.js"
@@ -9,10 +9,9 @@ namespace s_function2 {
 
 namespace declarations {
 
-    export type Node_Path = p_.Refiner_With_Parameter<
+    export type Node_Path = p_.Deserializer_With_Parameter<
         s_out.Node_Path,
         s_function.Error,
-        string,
         s_function2.Parameters
     >
 }
